@@ -21,7 +21,7 @@ export interface ITime {
   mills?: (n: number) => number;
   ms?: (n: number) => number;
 
-  parse?: (provider: ITime | ISize, n: number) => number;
+  parse?: (str: string) => number;
 }
 
 export interface ISize {
@@ -43,5 +43,5 @@ export interface ISize {
   b: (n: number) => number;
   bytes: (n: number) => number;
 
-  parse?: (provider: ITime | ISize, n: number) => number;
+  parse?: (str: string) => number;
 }

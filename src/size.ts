@@ -21,6 +21,6 @@ const size: ISize = {
   bytes: (n: number) => n
 }
 
-size.parse = parse.bind(size);
+size.parse = (str: string) => parse(size, str);
 
 export default size;

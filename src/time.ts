@@ -18,6 +18,6 @@ time.w = time.weeks;
 time.ms = time.mills = time.milliseconds;
 
 
-time.parse = parse.bind(time);
+time.parse = (str: string) => parse(time, str);
 
 export default time;
