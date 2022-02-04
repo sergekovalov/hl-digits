@@ -1,5 +1,5 @@
-import { ITime } from "./interfaces";
-import { parse } from "./utils";
+import { ITime } from './interfaces';
+import { parse } from './utils';
 
 const time: ITime = {
   seconds: (n: number) => n * 1000,
@@ -16,7 +16,6 @@ time.h = time.hs = time.hours;
 time.d = time.days;
 time.w = time.weeks;
 time.ms = time.mills = time.milliseconds;
-
 
 time.parse = (str: string) => parse(time, str);
 

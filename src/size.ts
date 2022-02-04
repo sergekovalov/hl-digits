@@ -1,5 +1,5 @@
-import { ISize } from "./interfaces";
-import { parse } from "./utils";
+import { ISize } from './interfaces';
+import { parse } from './utils';
 
 const size: ISize = {
   kb: (n: number) => n * 1024,
@@ -7,7 +7,7 @@ const size: ISize = {
 
   mb: (n: number) => n * size.kb(1024),
   megabytes: (n: number) => n * size.kb(1024),
-  
+
   gb: (n: number) => n * size.mb(1024),
   gigabytes: (n: number) => n * size.mb(1024),
 
@@ -18,8 +18,8 @@ const size: ISize = {
   petabytes: (n: number) => n * size.tb(1024),
 
   b: (n: number) => n,
-  bytes: (n: number) => n
-}
+  bytes: (n: number) => n,
+};
 
 size.parse = (str: string) => parse(size, str);
 

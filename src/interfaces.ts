@@ -10,13 +10,13 @@ export interface ITime {
   hours: (n: number) => number;
   hs?: (n: number) => number;
   h?: (n: number) => number;
-  
+
   days: (n: number) => number;
   d?: (n: number) => number;
-  
+
   weeks: (n: number) => number;
   w?: (n: number) => number;
-  
+
   milliseconds: (n: number) => number;
   mills?: (n: number) => number;
   ms?: (n: number) => number;
@@ -30,7 +30,7 @@ export interface ISize {
 
   mb: (n: number) => number;
   megabytes: (n: number) => number;
-  
+
   gb: (n: number) => number;
   gigabytes: (n: number) => number;
 
