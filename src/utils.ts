@@ -1,3 +1,5 @@
+import { PARSE_OBJECT_ERROR } from './constants';
+
 export const parse = (provider: any, str: string) => {
   const keys = Object.keys(provider).filter((key) => key !== 'parse');
 
@@ -11,5 +13,5 @@ export const parse = (provider: any, str: string) => {
     }
   }
 
-  throw { message: 'Cannot parse object' };
+  throw { message: PARSE_OBJECT_ERROR };
 };
