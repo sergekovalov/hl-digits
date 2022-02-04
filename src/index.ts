@@ -1,4 +1,5 @@
-import time from './time';
-import size from './size';
+export { default as Time } from './Time';
+export * from './Time';
 
-export default { time, size };
+export { default as ByteUnit } from './ByteUnit';
+export * from './ByteUnit';

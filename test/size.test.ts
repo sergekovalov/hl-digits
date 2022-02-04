@@ -1,33 +1,38 @@
-import size from '../src/size';
+import { ByteUnit } from '../src';
 import { expect } from 'chai';
 
 describe('Testing size', () => {
+  it('tests basic sizes', () => {
+    expect(ByteUnit.kb(1)).to.be.eq(1024);
+    expect(ByteUnit.mb(1)).to.be.eq(1_048_576);
+  });
+  
   it('tests kilobytes -> bytes', () => {
-    expect(size.bytes(1024)).to.be.eq(size.kilobytes(1));
+    expect(ByteUnit.bytes(1024)).to.be.eq(ByteUnit.kilobytes(1));
   });
 
   it('tests megabytes -> kilobytes', () => {
-    expect(size.kilobytes(1024)).to.be.eq(size.megabytes(1));
+    expect(ByteUnit.kilobytes(1024)).to.be.eq(ByteUnit.megabytes(1));
   });
 
   it('tests gigabytes -> megabytes', () => {
-    expect(size.megabytes(1024)).to.be.eq(size.gigabytes(1));
+    expect(ByteUnit.megabytes(1024)).to.be.eq(ByteUnit.gigabytes(1));
   });
 
   it('tests terabytes -> gigabytes', () => {
-    expect(size.gigabytes(1024)).to.be.eq(size.terabytes(1));
+    expect(ByteUnit.gigabytes(1024)).to.be.eq(ByteUnit.terabytes(1));
   });
 
   it('tests petabytes -> terabytes', () => {
-    expect(size.terabytes(1024)).to.be.eq(size.petabytes(1));
+    expect(ByteUnit.terabytes(1024)).to.be.eq(ByteUnit.petabytes(1));
   });
   
   it('parses sizes', () => {
-    expect(size.parse('13b')).to.be.eq(size.b(13));
-    expect(size.parse('13kb')).to.be.eq(size.kb(13));
-    expect(size.parse('13mb')).to.be.eq(size.mb(13));
-    expect(size.parse('13gb')).to.be.eq(size.gb(13));
-    expect(size.parse('13tb')).to.be.eq(size.tb(13));
-    expect(size.parse('13pb')).to.be.eq(size.pb(13));
+    expect(ByteUnit.parse('1b')).to.be.eq(ByteUnit.b(1));
+    expect(ByteUnit.parse('1kb')).to.be.eq(ByteUnit.kb(1));
+    expect(ByteUnit.parse('1mb')).to.be.eq(ByteUnit.mb(1));
+    expect(ByteUnit.parse('1gb')).to.be.eq(ByteUnit.gb(1));
+    expect(ByteUnit.parse('1tb')).to.be.eq(ByteUnit.tb(1));
+    expect(ByteUnit.parse('1pb')).to.be.eq(ByteUnit.pb(1));
   });
 });

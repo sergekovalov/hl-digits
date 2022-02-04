@@ -24,7 +24,7 @@ export interface ITime {
   parse?: (str: string) => number;
 }
 
-export interface ISize {
+export interface IByteUnit {
   kb: (n: number) => number;
   kilobytes: (n: number) => number;
 

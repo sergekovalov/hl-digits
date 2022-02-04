@@ -2,22 +2,22 @@ import { DAYS_IN_WEEK, HOURS_IN_DAY, MILLS_IN_SECOND, SECONDS_IN_MINUTES } from 
 import { ITime } from './interfaces';
 import { parse } from './utils';
 
-const time: ITime = {
+const Time: ITime = {
   seconds: (n: number) => n * MILLS_IN_SECOND,
-  minutes: (n: number) => n * time.seconds(SECONDS_IN_MINUTES),
-  hours: (n: number) => n * time.minutes(SECONDS_IN_MINUTES),
-  days: (n: number) => n * time.hours(HOURS_IN_DAY),
-  weeks: (n: number) => n * time.days(DAYS_IN_WEEK),
+  minutes: (n: number) => n * Time.seconds(SECONDS_IN_MINUTES),
+  hours: (n: number) => n * Time.minutes(SECONDS_IN_MINUTES),
+  days: (n: number) => n * Time.hours(HOURS_IN_DAY),
+  weeks: (n: number) => n * Time.days(DAYS_IN_WEEK),
   milliseconds: (n: number) => n,
 };
 
-time.s = time.secs = time.seconds;
-time.m = time.mins = time.minutes;
-time.h = time.hs = time.hours;
-time.d = time.days;
-time.w = time.weeks;
-time.ms = time.mills = time.milliseconds;
+Time.s = Time.secs = Time.seconds;
+Time.m = Time.mins = Time.minutes;
+Time.h = Time.hs = Time.hours;
+Time.d = Time.days;
+Time.w = Time.weeks;
+Time.ms = Time.mills = Time.milliseconds;
 
-time.parse = (str: string) => parse(time, str);
+Time.parse = (str: string) => parse(Time, str);
 
-export default time;
+export default Time;

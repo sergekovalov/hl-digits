@@ -1,20 +1,32 @@
-import time from '../src/time';
+import { Time } from '../src';
 import { expect } from 'chai';
 
 describe('Testing time', () => {
-  it('tests returns success', () => {
-    expect(time.milliseconds(1000)).to.be.eq(time.seconds(1));
-    expect(time.seconds(60)).to.be.eq(time.minutes(1));
-    expect(time.minutes(60)).to.be.eq(time.hours(1));
-    expect(time.hours(24)).to.be.eq(time.days(1));
-    expect(time.days(7)).to.be.eq(time.weeks(1));
+  it('tests seconds -> millieconds', () => {
+    expect(Time.milliseconds(1000)).to.be.eq(Time.seconds(1));
+  });
+  
+  it('tests minutes -> seconds', () => {
+    expect(Time.seconds(60)).to.be.eq(Time.minutes(1));
+  });
+
+  it('tests hours -> minutes', () => {
+    expect(Time.minutes(60)).to.be.eq(Time.hours(1));
+  });
+
+  it('tests days -> hours', () => {
+    expect(Time.hours(24)).to.be.eq(Time.days(1));
+  });
+
+  it('tests weeks -> days', () => {
+    expect(Time.days(7)).to.be.eq(Time.weeks(1));
   });
 
   it('parses times', () => {
-    expect(time.parse('13ms')).to.be.eq(time.ms(13));
-    expect(time.parse('13s')).to.be.eq(time.s(13));
-    expect(time.parse('13m')).to.be.eq(time.m(13));
-    expect(time.parse('13h')).to.be.eq(time.h(13));
-    expect(time.parse('13w')).to.be.eq(time.w(13));
+    expect(Time.parse('1ms')).to.be.eq(Time.ms(1));
+    expect(Time.parse('1s')).to.be.eq(Time.s(1));
+    expect(Time.parse('1m')).to.be.eq(Time.m(1));
+    expect(Time.parse('1h')).to.be.eq(Time.h(1));
+    expect(Time.parse('1w')).to.be.eq(Time.w(1));
   });
 });
