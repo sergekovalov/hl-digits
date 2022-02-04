@@ -1,12 +1,13 @@
+import { DAYS_IN_WEEK, HOURS_IN_DAY, MILLS_IN_SECOND, SECONDS_IN_MINUTES } from './constants';
 import { ITime } from './interfaces';
 import { parse } from './utils';
 
 const time: ITime = {
-  seconds: (n: number) => n * 1000,
-  minutes: (n: number) => n * time.seconds(60),
-  hours: (n: number) => n * time.minutes(60),
-  days: (n: number) => n * time.hours(24),
-  weeks: (n: number) => n * time.days(7),
+  seconds: (n: number) => n * MILLS_IN_SECOND,
+  minutes: (n: number) => n * time.seconds(SECONDS_IN_MINUTES),
+  hours: (n: number) => n * time.minutes(SECONDS_IN_MINUTES),
+  days: (n: number) => n * time.hours(HOURS_IN_DAY),
+  weeks: (n: number) => n * time.days(DAYS_IN_WEEK),
   milliseconds: (n: number) => n,
 };
 

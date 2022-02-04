@@ -1,21 +1,22 @@
+import { SIZE } from './constants';
 import { ISize } from './interfaces';
 import { parse } from './utils';
 
 const size: ISize = {
-  kb: (n: number) => n * 1024,
-  kilobytes: (n: number) => n * 1024,
+  kb: (n: number) => n * SIZE,
+  kilobytes: (n: number) => n * SIZE,
 
-  mb: (n: number) => n * size.kb(1024),
-  megabytes: (n: number) => n * size.kb(1024),
+  mb: (n: number) => n * size.kb(SIZE),
+  megabytes: (n: number) => n * size.kb(SIZE),
 
-  gb: (n: number) => n * size.mb(1024),
-  gigabytes: (n: number) => n * size.mb(1024),
+  gb: (n: number) => n * size.mb(SIZE),
+  gigabytes: (n: number) => n * size.mb(SIZE),
 
-  tb: (n: number) => n * size.gb(1024),
-  terabytes: (n: number) => n * size.gb(1024),
+  tb: (n: number) => n * size.gb(SIZE),
+  terabytes: (n: number) => n * size.gb(SIZE),
 
-  pb: (n: number) => n * size.tb(1024),
-  petabytes: (n: number) => n * size.tb(1024),
+  pb: (n: number) => n * size.tb(SIZE),
+  petabytes: (n: number) => n * size.tb(SIZE),
 
   b: (n: number) => n,
   bytes: (n: number) => n,

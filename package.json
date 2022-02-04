@@ -1,6 +1,6 @@
 {
   "name": "hl-digits",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/sergekovalev/hl-digits",
   "files": [
-    "dist /*"
+    "dist/*"
   ],
   "scripts": {
     "build": "rm -rf dist && npx tsc",
