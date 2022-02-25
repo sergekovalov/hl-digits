@@ -1,5 +1,8 @@
 # hl-digits (Human-like digits)
 
+## NPM
+[https://www.npmjs.com/package/hl-digits](https://www.npmjs.com/package/hl-digits)
+
 ## Installation
 ```sh
   npm i hl-digits
