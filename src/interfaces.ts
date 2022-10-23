@@ -16,6 +16,8 @@ export interface ITime {
 
   weeks: (n: number) => number;
   w?: (n: number) => number;
+  
+  months: (n: number) => number;
 
   milliseconds: (n: number) => number;
   mills?: (n: number) => number;
@@ -44,4 +46,5 @@ export interface IByteUnit {
   bytes: (n: number) => number;
 
   parse?: (str: string) => number;
+  toString: (value: string, as: string, representation: 'decimal' | 'binary') => string;
 }

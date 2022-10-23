@@ -35,4 +35,12 @@ describe('Testing size', () => {
     expect(ByteUnit.parse('1tb')).to.be.eq(ByteUnit.tb(1));
     expect(ByteUnit.parse('1pb')).to.be.eq(ByteUnit.pb(1));
   });
+
+  it('converts to string decimal', () => {
+    expect(ByteUnit.toString(`${281312}b`, 'kb', 'decimal')).to.be.eq("281.312kb");
+  })
+  
+  it('converts to string binary', () => {
+    expect(ByteUnit.toString(`${281312}b`, 'kb', 'binary')).to.be.eq("274.71875kb");
+  })
 });
