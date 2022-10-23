@@ -1,7 +1,7 @@
 import { ByteUnit } from '../src';
 import { expect } from 'chai';
 
-describe('Testing size', () => {
+describe('Testing byte-unit', () => {
   it('tests basic sizes', () => {
     expect(ByteUnit.kb(1)).to.be.eq(1024);
     expect(ByteUnit.mb(1)).to.be.eq(1_048_576);
@@ -37,10 +37,10 @@ describe('Testing size', () => {
   });
 
   it('converts to string decimal', () => {
-    expect(ByteUnit.toString(`${281312}b`, 'kb')).to.be.eq("281.312kb");
+    expect(ByteUnit.toString(`${281312}b`, 'kb')).to.be.eq("281.3kb");
   })
   
   it('converts to string binary', () => {
-    expect(ByteUnit.toString(`${281312}b`, 'kb', 'binary')).to.be.eq("274.71875kb");
+    expect(ByteUnit.toString(`${281312}b`, 'kb', 'binary')).to.be.eq("274.7kb");
   })
 });
