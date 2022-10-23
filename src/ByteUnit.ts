@@ -20,25 +20,26 @@ const ByteUnit: IByteUnit = {
 
   b: (n: number) => n,
   bytes: (n: number) => n,
+  
+  parse: (str: string) => parse(ByteUnit, str),
+  toString: (value: string, as: string, representation: 'decimal' | 'binary' = 'decimal'): string => {
+      const bytes = ByteUnit.parse(value);
+      const MULTILPIER = representation === 'decimal' ? 1000 : KILOBYTE_UNIT_SIZE;
+  
+      switch(as) {
+        case 'kb':
+          return `${bytes / MULTILPIER}kb`;
+        case 'mb':
+          return `${bytes / (MULTILPIER ** 2)}mb`;
+        case 'gb':
+          return `${bytes / (MULTILPIER ** 3)}gb`;
+        case 'tb':
+          return `${bytes / (MULTILPIER ** 4)}tb`;
+        case 'pb':
+          return `${bytes / (MULTILPIER ** 5)}pb`;
+      }
+    }
 };
 
-ByteUnit.parse = (str: string) => parse(ByteUnit, str);
-ByteUnit.toString = (value: string, as: string, representation: 'decimal' | 'binary' = 'decimal'): string => {
-    const bytes = ByteUnit.parse(value);
-    const MULTILPIER = representation === 'decimal' ? 1000 : KILOBYTE_UNIT_SIZE;
-
-    switch(as) {
-      case 'kb':
-        return `${bytes / MULTILPIER}kb`;
-      case 'mb':
-        return `${bytes / (MULTILPIER ** 2)}mb`;
-      case 'gb':
-        return `${bytes / (MULTILPIER ** 3)}gb`;
-      case 'tb':
-        return `${bytes / (MULTILPIER ** 4)}tb`;
-      case 'pb':
-        return `${bytes / (MULTILPIER ** 5)}pb`;
-    }
-  }
 
 export default ByteUnit;

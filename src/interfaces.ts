@@ -45,6 +45,6 @@ export interface IByteUnit {
   b: (n: number) => number;
   bytes: (n: number) => number;
 
-  parse?: (str: string) => number;
-  toString: (value: string, as: string, representation: 'decimal' | 'binary') => string;
+  parse: (str: string) => number;
+  toString: (value: string, as: string, representation?: 'decimal' | 'binary') => string;
 }

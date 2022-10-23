@@ -37,7 +37,7 @@ describe('Testing size', () => {
   });
 
   it('converts to string decimal', () => {
-    expect(ByteUnit.toString(`${281312}b`, 'kb', 'decimal')).to.be.eq("281.312kb");
+    expect(ByteUnit.toString(`${281312}b`, 'kb')).to.be.eq("281.312kb");
   })
   
   it('converts to string binary', () => {
