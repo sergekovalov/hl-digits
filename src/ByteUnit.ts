@@ -28,15 +28,15 @@ const ByteUnit: IByteUnit = {
   
       switch(as) {
         case 'kb':
-          return `${bytes / MULTILPIER}kb`;
+          return `${(bytes / MULTILPIER).toFixed(1)}kb`;
         case 'mb':
-          return `${bytes / (MULTILPIER ** 2)}mb`;
+          return `${(bytes / (MULTILPIER ** 2)).toFixed(1)}mb`;
         case 'gb':
-          return `${bytes / (MULTILPIER ** 3)}gb`;
+          return `${(bytes / (MULTILPIER ** 3)).toFixed(1)}gb`;
         case 'tb':
-          return `${bytes / (MULTILPIER ** 4)}tb`;
+          return `${(bytes / (MULTILPIER ** 4)).toFixed(1)}tb`;
         case 'pb':
-          return `${bytes / (MULTILPIER ** 5)}pb`;
+          return `${(bytes / (MULTILPIER ** 5)).toFixed(1)}pb`;
       }
     }
 };
