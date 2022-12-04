@@ -22,21 +22,34 @@ const ByteUnit: IByteUnit = {
   bytes: (n: number) => n,
   
   parse: (str: string) => parse(ByteUnit, str),
-  toString: (value: string, as: string, representation: 'decimal' | 'binary' = 'decimal'): string => {
+  toString: (value: string, as: string = 'auto', representation: 'decimal' | 'binary' = 'binary'): string => {
       const bytes = ByteUnit.parse(value);
       const MULTILPIER = representation === 'decimal' ? 1000 : KILOBYTE_UNIT_SIZE;
+
+      const suffixes = {
+        1: 'kb',
+        2: 'mb',
+        3: 'gb',
+        4: 'tb',
+        5: 'pb'
+      }
   
       switch(as) {
         case 'kb':
-          return `${(bytes / MULTILPIER).toFixed(1)}kb`;
+          return `${(bytes / MULTILPIER).toFixed(1)}${suffixes[1]}`;
         case 'mb':
-          return `${(bytes / (MULTILPIER ** 2)).toFixed(1)}mb`;
+          return `${(bytes / (MULTILPIER ** 2)).toFixed(1)}${suffixes[2]}`;
         case 'gb':
-          return `${(bytes / (MULTILPIER ** 3)).toFixed(1)}gb`;
+          return `${(bytes / (MULTILPIER ** 3)).toFixed(1)}${suffixes[3]}`;
         case 'tb':
-          return `${(bytes / (MULTILPIER ** 4)).toFixed(1)}tb`;
+          return `${(bytes / (MULTILPIER ** 4)).toFixed(1)}${suffixes[4]}`;
         case 'pb':
-          return `${(bytes / (MULTILPIER ** 5)).toFixed(1)}pb`;
+          return `${(bytes / (MULTILPIER ** 5)).toFixed(1)}${suffixes[5]}`;
+        case 'auto':
+        default:
+          const suffix = bytes.toString().split('').reverse().join('').match(/.{1,3}/g).reverse().slice(1).length;
+          
+          return `${(bytes / (MULTILPIER ** suffix)).toFixed(1)}${suffixes[suffix]}`;
       }
     }
 };

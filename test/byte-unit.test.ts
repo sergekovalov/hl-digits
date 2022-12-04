@@ -37,10 +37,16 @@ describe('Testing byte-unit', () => {
   });
 
   it('converts to string decimal', () => {
-    expect(ByteUnit.toString(`${281312}b`, 'kb')).to.be.eq("281.3kb");
+    expect(ByteUnit.toString(`${281312}b`, 'kb', 'decimal')).to.be.eq("281.3kb");
   })
   
   it('converts to string binary', () => {
-    expect(ByteUnit.toString(`${281312}b`, 'kb', 'binary')).to.be.eq("274.7kb");
+    expect(ByteUnit.toString(`${281312}b`, 'kb')).to.be.eq("274.7kb");
   })
+
+  it('converts to string auto', () => {
+    expect(ByteUnit.toString(`${281312}b`, 'auto')).to.be.eq("274.7kb");
+    expect(ByteUnit.toString(`${5781312}b`, 'auto')).to.be.eq("5.5mb");
+  });
+
 });
