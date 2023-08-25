@@ -24,6 +24,11 @@ const ByteUnit: IByteUnit = {
   parse: (str: string) => parse(ByteUnit, str),
   toString: (value: string, as: string = 'auto', representation: 'decimal' | 'binary' = 'binary'): string => {
       const bytes = ByteUnit.parse(value);
+
+      if(bytes === 0) {
+        return "0.0b";
+      }
+
       const MULTILPIER = representation === 'decimal' ? 1000 : KILOBYTE_UNIT_SIZE;
 
       const suffixes = {

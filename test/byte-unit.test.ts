@@ -6,6 +6,7 @@ describe('Testing byte-unit', () => {
     expect(ByteUnit.kb(1)).to.be.eq(1024);
     expect(ByteUnit.mb(1)).to.be.eq(1_048_576);
   });
+
   
   it('tests kilobytes -> bytes', () => {
     expect(ByteUnit.bytes(1024)).to.be.eq(ByteUnit.kilobytes(1));
@@ -49,4 +50,7 @@ describe('Testing byte-unit', () => {
     expect(ByteUnit.toString(`${5781312}b`, 'auto')).to.be.eq("5.5mb");
   });
 
+  it('tests zero byte conversion', () => {
+    expect(ByteUnit.toString("0b")).to.be.eq("0.0b");
+  });
 });
