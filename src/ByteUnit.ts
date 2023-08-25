@@ -27,24 +27,27 @@ const ByteUnit: IByteUnit = {
       const MULTILPIER = representation === 'decimal' ? 1000 : KILOBYTE_UNIT_SIZE;
 
       const suffixes = {
-        1: 'kb',
-        2: 'mb',
-        3: 'gb',
-        4: 'tb',
-        5: 'pb'
+        1: 'b',
+        2: 'kb',
+        3: 'mb',
+        4: 'gb',
+        5: 'tb',
+        6: 'pb'
       }
   
       switch(as) {
+        case 'b':
+          return `${(bytes).toFixed(1)}${suffixes[1]}`;
         case 'kb':
-          return `${(bytes / MULTILPIER).toFixed(1)}${suffixes[1]}`;
+          return `${(bytes / MULTILPIER).toFixed(1)}${suffixes[2]}`;
         case 'mb':
-          return `${(bytes / (MULTILPIER ** 2)).toFixed(1)}${suffixes[2]}`;
+          return `${(bytes / (MULTILPIER ** 2)).toFixed(1)}${suffixes[3]}`;
         case 'gb':
-          return `${(bytes / (MULTILPIER ** 3)).toFixed(1)}${suffixes[3]}`;
+          return `${(bytes / (MULTILPIER ** 3)).toFixed(1)}${suffixes[4]}`;
         case 'tb':
-          return `${(bytes / (MULTILPIER ** 4)).toFixed(1)}${suffixes[4]}`;
+          return `${(bytes / (MULTILPIER ** 4)).toFixed(1)}${suffixes[5]}`;
         case 'pb':
-          return `${(bytes / (MULTILPIER ** 5)).toFixed(1)}${suffixes[5]}`;
+          return `${(bytes / (MULTILPIER ** 5)).toFixed(1)}${suffixes[6]}`;
         case 'auto':
         default:
           const suffix = bytes.toString().split('').reverse().join('').match(/.{1,3}/g).reverse().slice(1).length;
