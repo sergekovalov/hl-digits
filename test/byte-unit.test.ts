@@ -7,7 +7,6 @@ describe('Testing byte-unit', () => {
     expect(ByteUnit.mb(1)).to.be.eq(1_048_576);
   });
 
-  
   it('tests kilobytes -> bytes', () => {
     expect(ByteUnit.bytes(1024)).to.be.eq(ByteUnit.kilobytes(1));
   });
